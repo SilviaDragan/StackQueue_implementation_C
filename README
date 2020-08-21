@@ -1,0 +1,53 @@
+Implementarile stivelor si ale cozilor sunt cele de la curs.
+
+Pentru a deschide un tab folosesc functia OpenNewTab, ce primeste ca
+parametro o lista de tab uri, un element void *x ce reprezinta un tab
+si tab ul curent. Aloc un element nou cu informatia x si il leg la 
+sfarsitul listei de tab uri, setez tab ul curent la acesta.
+
+Pentru a inchide un tab, folosesc functia ClaseTab, ce sterge ultimul 
+element din lista de tab uri si seteaza tab ul curent la penultimul
+element, in cazul in care acesta era setat pe ultimul. Folosesc functia
+auxiliara DistrTab pentru a elibera memoria ocupata de un tab.
+
+Pentru a schimba pozitia tab ului curent, parcurc lista de tab uri 
+pana la indexul dat, si setez curentul la pozitia aceea.
+
+Pentru a afisa lista tab urilor, parcurg lista si ma folosesc de functia
+auxiliara AfiTab, ce afiseaza URL ul paginii curente sau "empty".
+
+Functia GoTo deschide o noua pagina Web in tab ul curent. Aloc spatiu
+pentru o pagina noua si folosesc functia get_resources pentru a obtine
+resursele acesteia. Daca exista deja o pagina curenta deschisa, 
+efectuez opertia de Push in stiva de back. in orice caz resetez stiva de
+forward.
+
+Functia Back scoate un element din stiva de back in cazul in care 
+aceasta nu este vida, trimite elementul curent in stiva de forward si
+seteaza elementul scos ca element curent.
+
+Operatia de forward face inversul operatiei de back.
+
+Pentru a sterge primele i intrari din instoricul browser ului, extrag
+elemente din coada istoricului global si le eliberez memoria. Daca
+numarul de intrari primite este 0, resetez intreaga coada.
+
+Functia download:
+Folosesc o coada auxiliara. Cat timp coada descarcarilor nu e vida,
+compar prioritatea elemntului cu cea a primului element din coada 
+descarcarilor. Daca elementul de inseratare prioritate mai mica, 
+introduc elementul extras in coada auxiliara, continuand procesul.
+Daca elementul are prioritate mai mare, il inserez intai pe acesta
+in coada auxiliara, apoi celalalt el, intrerup procesul.
+Concatenez noua coada cu ce a ramas din coada descarcarilor, apoi
+concatenez "invers" pentru a obtine coada descarcarilor.
+
+Functia wait:
+Verific daca nr de secunde*bandwidth este mai mare decat ce a ramas de
+descarcat din resursa cu prioritatea cea mai mare. Daca da, introduc
+resursa in coada de descarcari finalizate. Altfel, scad din dimensiunea
+ramasa de descarcat a resursei si o reintroduc in coada de descarcari.
+
+
+
+
